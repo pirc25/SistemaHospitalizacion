@@ -15,7 +15,7 @@ public class SistemaHospitalario {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("hola Mundo");
+        System.out.println("hola Mundo 222222");
     }
     
 }
