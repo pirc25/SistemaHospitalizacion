@@ -70,6 +70,6 @@ public class Usuario {
     cedula="";
     fechadenacimiento="";
     sexo="";
-    Hospital =new Hospital;
+    hospital =new Hospital();
 }
 }
