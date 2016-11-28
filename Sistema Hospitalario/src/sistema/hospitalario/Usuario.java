@@ -5,6 +5,8 @@
  */
 package sistema.hospitalario;
 
+import java.util.Date;
+
 /**
  *
  * @author Admini
@@ -15,7 +17,7 @@ public class Usuario {
     private String cedula;
     private String fechadenacimiento;
     private String sexo;
-    private Hospital hospital;
+    
 
     public String getNombre() {
         return nombre;
@@ -57,19 +59,12 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    public Hospital getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
-    }
     public Usuario(){
     nombre="";
     apellido="";
     cedula="";
     fechadenacimiento="";
     sexo="";
-    hospital =new Hospital();
+    
 }
 }

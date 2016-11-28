@@ -58,6 +58,15 @@ public class Hospital {
         this.p=new ArrayList();
         this.m=new ArrayList();
     }
-    
+    public void cargarDatos(){
+        for(int i=0;i<2;i++){
+            Medico med=new Medico();
+            this.getM().add(med);
+        }
+        this.getM().get(0).setNombre("Juan");
+        this.getM().get(0).setApellido("Velazques");
+        this.getM().get(0).setCedula("0215545554");
+        this.getM().get(0).setEspecialidad("Cardiologo");
+    }
     
 }

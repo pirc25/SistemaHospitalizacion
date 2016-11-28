@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Medico extends Usuario{
     private String especialidad;
-    private String consultorio;
+    private Consultorio consultorio;
 
     public String getEspecialidad() {
         return especialidad;
@@ -19,13 +19,13 @@ public class Medico extends Usuario{
         this.especialidad = especialidad;
     }
 
-    public String getConsultorio() {
+    public Consultorio getConsultorio() {
         return consultorio;
     }
 
-    public void setConsultorio(String consultorio) {
+    public void setConsultorio(Consultorio consultorio) {
         this.consultorio = consultorio;
-    }
+    }   
     
     public void atenderPaciente(Paciente paciente){
         if(paciente.getEstado()=="Enfermo"){
@@ -44,7 +44,7 @@ public class Medico extends Usuario{
     public Medico() {
     }
     
-    public Medico(String nombre,String apellido,String especialidad, String consultorio) {
+    public Medico(String nombre,String apellido,String especialidad, Consultorio consultorio) {
         this.especialidad = especialidad;
         this.consultorio = consultorio;
         this.setNombre(nombre);
