@@ -28,16 +28,15 @@ public class Medico extends Usuario{
     }   
     
     public void atenderPaciente(Paciente paciente){
-        if(paciente.getEstado()=="Enfermo"){
-            paciente.setEstado(2);
-        }else if(paciente.getEstado()=="En tratamiento"){
-            paciente.setEstado(3);
+        if(paciente.getHistoriaClinica().getEstado()=="Enfermo"){
+            paciente.getHistoriaClinica().setEstado(2);
+        }else if(paciente.getHistoriaClinica().getEstado()=="En tratamiento"){
+            paciente.getHistoriaClinica().setEstado(3);
         }
     }
-    //ArrayList <Paciente> ap=new ArrayList();
-    public void verPacientes(ArrayList<Paciente> ap){
-        for(int i=0;i<ap.size;i++){
-            System.out.println("\n"+ap[i].getNombre()+" "+ap[i].getApellido()+"    "ap[i].getEstado());
+    public void verPacientes(ArrayList<Paciente> p){
+        for(int i=0;i<p.size();i++){
+            System.out.println("\n"+p.get(i).getNombre());
         }
     }
 
