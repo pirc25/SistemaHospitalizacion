@@ -26,18 +26,47 @@ public class HistoriaClinica {
         return tipoSangre;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstado(int x) {
+        switch  (x){
+            case 0:
+                this.estado = "Enfermo";
+                break;
+            case 1:
+                this.estado = "Enfermo";
+                break;
+            case 2:
+                this.estado = "Enfermo";
+                break;
+            default:
+                this.estado = "Enfermo";
+                break;
+            }
     }
 
     public void setAlergia(String alergia) {
         this.alergia = alergia;
     }
 
+    
+    
     public void setTipoSangre(String tipoSangre) {
         this.tipoSangre = tipoSangre;
     }
-            
+
+    public HistoriaClinica(String estado, String alergia, String tipoSangre) {
+        this.estado = estado;
+        this.alergia = alergia;
+        this.tipoSangre = tipoSangre;
+    }
+
+    public HistoriaClinica() {
+        this.estado = "Enfermo";
+        this.alergia = "";
+        this.tipoSangre = "";
+    }
+
+    
+   
     
     
 }
