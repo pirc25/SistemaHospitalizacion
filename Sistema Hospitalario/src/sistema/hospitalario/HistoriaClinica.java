@@ -32,10 +32,10 @@ public class HistoriaClinica {
                 this.estado = "Enfermo";
                 break;
             case 1:
-                this.estado = "Enfermo";
+                this.estado = "En Tratamiento";
                 break;
             case 2:
-                this.estado = "Enfermo";
+                this.estado = "Sano";
                 break;
             default:
                 this.estado = "Enfermo";

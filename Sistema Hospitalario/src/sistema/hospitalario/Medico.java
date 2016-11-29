@@ -26,17 +26,18 @@ public class Medico extends Usuario{
     public void setConsultorio(Consultorio consultorio) {
         this.consultorio = consultorio;
     }   
-    
-    public void atenderPaciente(Paciente paciente){
-        /*if(paciente.getHistoriaClinica().getEstado()=="Enfermo"){
-            paciente.getHistoriaClinica().setEstado(2);
-        }else if(paciente.getHistoriaClinica().getEstado()=="En tratamiento"){
-            paciente.getHistoriaClinica().setEstado(3);
-        }*/
-    }
     public void verPacientes(ArrayList<Paciente> p){
         for(int i=0;i<p.size();i++){
-            System.out.println("\n"+p.get(i).getNombre());
+            if(p.get(i).getMedico()==this){
+                System.out.println(p.get(i).getNombre()+" "+p.get(i).getApellido()+"\t"+p.get(i).getHistoriaClinica().getEstado());
+            }
+        }
+    }
+    public void atenderPaciente(Paciente paciente){
+        if(paciente.getHistoriaClinica().getEstado()=="Enfermo"){
+            paciente.getHistoriaClinica().setEstado(1);
+        }else if(paciente.getHistoriaClinica().getEstado()=="En tratamiento"){
+            paciente.getHistoriaClinica().setEstado(2);
         }
     }
 
