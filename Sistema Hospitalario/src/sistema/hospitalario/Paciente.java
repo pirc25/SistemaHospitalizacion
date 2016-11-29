@@ -13,6 +13,8 @@ public class Paciente extends Usuario{
     private Medico medico;
     private HistoriaClinica historiaClinica;
     private Cuarto cuarto;
+   
+   
 
     public Medico getMedico() {
         return medico;
@@ -50,7 +52,11 @@ public class Paciente extends Usuario{
         this.cuarto = cuarto;
     }
 
-    public void verHistoriaCLinica (HistoriaClinica historiaClinica){
+    public void verHistoriaClinica (HistoriaClinica historiaClinica){
         this.getHistoriaClinica();
+        System.out.println(this.getHistoriaClinica().getEstado());
+        System.out.println(this.getHistoriaClinica().getAlergia());
+        System.out.println(this.getHistoriaClinica().getTipoSangre());
     }
 }
+
