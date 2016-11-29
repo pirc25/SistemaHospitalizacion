@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Admini
  */
-public class Secretario {
+public class Secretario extends Usuario{
     private Oficina oficina;
 
     public Oficina getOficina() {
@@ -26,9 +26,9 @@ public class Secretario {
     p.add(q);
     Scanner sc=new Scanner(System.in);
     System.out.println("Ingrese nombre del paciente");
-    p.setNombre(sc.nextLine());
+    q.setNombre(sc.nextLine());
     System.out.println("Ingrese apellido del paciente");
-    p.setApellido(sc.nextLine());
+    q.setApellido(sc.nextLine());
     
     
    }

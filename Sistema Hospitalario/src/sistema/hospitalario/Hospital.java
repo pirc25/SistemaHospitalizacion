@@ -16,7 +16,15 @@ public class Hospital {
     private String dirección;
     private ArrayList<Paciente>p;
     private ArrayList<Medico>m;
+    private Secretario s;
 
+    public Secretario getS() {
+        return s;
+    }
+
+    public void setS(Secretario s) {
+        this.s = s;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -50,6 +58,11 @@ public class Hospital {
     }
 
     public Hospital() {
+        this.nombre ="";
+        this.dirección ="";
+        this.p=new ArrayList();
+        this.m=new ArrayList();
+        this.s=new Secretario();
     }
 
     public Hospital(String nombre, String dirección) {
@@ -57,6 +70,7 @@ public class Hospital {
         this.dirección = dirección;
         this.p=new ArrayList();
         this.m=new ArrayList();
+        this.s=new Secretario();
     }
     public void cargarDatos(){
         for(int i=0;i<2;i++){
@@ -67,6 +81,22 @@ public class Hospital {
         this.getM().get(0).setApellido("Velazques");
         this.getM().get(0).setCedula("0215545554");
         this.getM().get(0).setEspecialidad("Cardiologo");
+    }
+    public int buscar(String cadena){
+        if("cadena".equals(this.s.getCedula())){
+            return 1;
+        }
+        for(int i=0;i<this.m.size();i++){
+            if("cadena".equals(this.m.get(i).cedula)){
+                return 2;
+            }
+        }
+        for(int i=0;i<this.p.size();i++){
+            if("cadena".equals(this.p.get(i).cedula)){
+                return 3;
+            }
+        }
+        return 0;    
     }
     
 }

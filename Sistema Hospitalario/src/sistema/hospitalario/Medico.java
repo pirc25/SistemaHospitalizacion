@@ -28,11 +28,11 @@ public class Medico extends Usuario{
     }   
     
     public void atenderPaciente(Paciente paciente){
-        if(paciente.getHistoriaClinica().getEstado()=="Enfermo"){
+        /*if(paciente.getHistoriaClinica().getEstado()=="Enfermo"){
             paciente.getHistoriaClinica().setEstado(2);
         }else if(paciente.getHistoriaClinica().getEstado()=="En tratamiento"){
             paciente.getHistoriaClinica().setEstado(3);
-        }
+        }*/
     }
     public void verPacientes(ArrayList<Paciente> p){
         for(int i=0;i<p.size();i++){
@@ -46,8 +46,8 @@ public class Medico extends Usuario{
     public Medico(String nombre,String apellido,String especialidad, Consultorio consultorio) {
         this.especialidad = especialidad;
         this.consultorio = consultorio;
-        this.setNombre(nombre);
-        this.setApellido(apellido);
+        this.nombre=nombre;
+        this.apellido=apellido;
     }
     
 }

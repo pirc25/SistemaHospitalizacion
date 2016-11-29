@@ -5,6 +5,8 @@
  */
 package sistema.hospitalario;
 
+import java.util.Scanner;
+
 /**
  *
  * @author USRKAP
@@ -16,7 +18,18 @@ public class SistemaHospitalario {
      */
     public static void main(String[] args) {
        Hospital hosp=new Hospital();
-       hosp.cargarDatos();
+       Scanner sc=new Scanner(System.in);
+       //hosp.cargarDatos();
+       System.out.println("\t\t\tSistema Hospitalario");
+       System.out.print("\nIngrese su cedula: ");
+       String ci=sc.nextLine();
+       
+       int opc;
+       opc=hosp.buscar(ci);
+       
+       if(opc==0){
+           System.out.println("\nNo se ha encontrado usuario\n");
+       }
     }
     
 }

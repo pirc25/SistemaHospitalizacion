@@ -5,18 +5,17 @@
  */
 package sistema.hospitalario;
 
-import java.util.Date;
 
 /**
  *
  * @author Admini
  */
 public class Usuario {
-    private String nombre;
-    private String apellido;
-    private String cedula;
-    private String fechadenacimiento;
-    private String sexo;
+    protected String nombre;
+    protected String apellido;
+    protected String cedula;
+    protected String fechadenacimiento;
+    protected String sexo;
     
 
     public String getNombre() {
