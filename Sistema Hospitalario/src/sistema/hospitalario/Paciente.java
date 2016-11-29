@@ -37,6 +37,12 @@ public class Paciente extends Usuario{
     public void setCuarto(Cuarto cuarto) {
         this.cuarto = cuarto;
     }
+    public Paciente(){
+        this.medico=new Medico();
+        this.historiaClinica= new HistoriaClinica();
+        this.cuarto=new Cuarto();
+    }
+            
 
     public Paciente(Medico medico, HistoriaClinica historiaClinica, Cuarto cuarto) {
         this.medico = medico;
