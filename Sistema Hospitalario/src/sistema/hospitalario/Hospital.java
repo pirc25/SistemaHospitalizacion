@@ -73,9 +73,9 @@ public class Hospital {
         this.s=new Secretario();
     }
     public void cargarDatos(){
-        this.getS().setNombre("Fabio");
+        this.getS().setNombre("Juan");
         this.getS().setApellido("Vasconez");
-        this.getS().setCedula("00000");
+        this.getS().setCedula("1111");
         
         for(int i=0;i<2;i++){
             Medico med=new Medico();
@@ -87,7 +87,7 @@ public class Hospital {
         this.getM().get(0).setEspecialidad("Cardiologo");
         this.getM().get(1).setNombre("Javier");
         this.getM().get(1).setApellido("Velazques");
-        this.getM().get(1).setCedula("0123456789");
+        this.getM().get(1).setCedula("2222");
         this.getM().get(1).setEspecialidad("Pediatra");
         for(int i=0;i<6;i++){
             Paciente pac = new Paciente();
@@ -103,7 +103,7 @@ public class Hospital {
         this.getP().get(1).setSexo("Masculino");
         this.getP().get(2).setNombre("Sebastian");
         this.getP().get(2).setApellido("Hidalgo");
-        this.getP().get(2).setCedula("1234567893");
+        this.getP().get(2).setCedula("3333");
         this.getP().get(2).setSexo("Masculino");
         this.getP().get(3).setNombre("Jose");
         this.getP().get(3).setApellido("Rojas");

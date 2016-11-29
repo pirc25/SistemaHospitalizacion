@@ -33,6 +33,7 @@ public class Secretario extends Usuario{
     
    }
     public void registrarNuevoMedico (ArrayList<Medico>m,Medico n){
+        
         m.add(n);
         Scanner sc=new Scanner(System.in);
         System.out.println("Ingrese nombre del medico");
@@ -45,7 +46,6 @@ public class Secretario extends Usuario{
         n.setEspecialidad(sc.nextLine());
         System.out.println("Ingrese el numero del consultorio");
         n.getConsultorio().setNumero(sc.nextInt());
-        
-                
+                   
     }
 }
