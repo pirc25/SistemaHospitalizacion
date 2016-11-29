@@ -16,7 +16,7 @@ public class Usuario {
     protected String cedula;
     protected String fechadenacimiento;
     protected String sexo;
-    
+    //Le puse "protected" en vez de "private" para que las clases hijas tengan acceso a los atributos
 
     public String getNombre() {
         return nombre;

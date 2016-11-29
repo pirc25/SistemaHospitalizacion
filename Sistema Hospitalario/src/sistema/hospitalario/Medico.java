@@ -41,6 +41,10 @@ public class Medico extends Usuario{
     }
 
     public Medico() {
+        this.especialidad ="";
+        this.consultorio =new Consultorio();
+        this.nombre="";
+        this.apellido="";
     }
     
     public Medico(String nombre,String apellido,String especialidad, Consultorio consultorio) {
@@ -49,5 +53,11 @@ public class Medico extends Usuario{
         this.nombre=nombre;
         this.apellido=apellido;
     }
+    public void toSting(){
+        System.out.println("Nombre: "+this.getNombre()+" "+this.getApellido());
+        System.out.println("Especialidad: "+this.getEspecialidad());
+        System.out.println("Consultorio: "+this.consultorio.getNumero());
+    }
+    
     
 }
