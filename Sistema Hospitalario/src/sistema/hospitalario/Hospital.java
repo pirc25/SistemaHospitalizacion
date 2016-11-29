@@ -73,6 +73,10 @@ public class Hospital {
         this.s=new Secretario();
     }
     public void cargarDatos(){
+        this.getS().setNombre("Fabio");
+        this.getS().setApellido("Vasconez");
+        this.getS().setCedula("00000");
+        
         for(int i=0;i<2;i++){
             Medico med=new Medico();
             this.getM().add(med);
@@ -112,20 +116,36 @@ public class Hospital {
         
     }
     public int buscar(String cadena){
-        if("cadena".equals(this.s.getCedula())){
-            return 1;
+        int opcion=0;
+        if(cadena.equals(this.s.getCedula())){
+            opcion=1;
         }
         for(int i=0;i<this.m.size();i++){
-            if("cadena".equals(this.m.get(i).cedula)){
-                return 2;
+            if(cadena.equals(this.m.get(i).cedula)){
+                opcion=2;
             }
         }
         for(int i=0;i<this.p.size();i++){
-            if("cadena".equals(this.p.get(i).cedula)){
-                return 3;
+            if(cadena.equals(this.p.get(i).cedula)){
+                opcion=3;
             }
         }
-        return 0;    
+        
+        return opcion;
+    }
+    public int buscarPoscicion(String cadena){
+        
+        for(int i=0;i<this.m.size();i++){
+            if(cadena.equals(this.m.get(i).cedula)){
+                return i;
+            }
+        }
+        for(int i=0;i<this.p.size();i++){
+            if(cadena.equals(this.p.get(i).cedula)){
+                return i;
+            }
+        }
+        return 0;
     }
     
 }
