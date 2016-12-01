@@ -70,12 +70,12 @@ public class SistemaHospitalario {
                     switch(y){
                         case 1:
                             hosp.getM().get(pos).verPacientes(hosp.getP());
+                            break;
                         case 2:
-                            System.out.println("Ingrese cedula del paciente que desea editar: ");
-                            String ci2=sc.nextLine();
-                            int i=hosp.buscarPoscicion(ci2);
-                            hosp.getM().get(pos).atenderPaciente(hosp.getP().get(i));
+                            hosp.getM().get(pos).atenderPaciente(hosp);
+                            break;
                         case 3:
+                            break;
                         default: 
                             break;
                     }

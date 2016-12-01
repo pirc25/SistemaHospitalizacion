@@ -97,10 +97,12 @@ public class Hospital {
         this.getP().get(0).setApellido("Rivera");
         this.getP().get(0).setCedula("1234567891");
         this.getP().get(0).setSexo("Masculino");
+        this.getP().get(0).setMedico(this.getM().get(0));
         this.getP().get(1).setNombre("Juan");
         this.getP().get(1).setApellido("Perez");
         this.getP().get(1).setCedula("0123456782");
         this.getP().get(1).setSexo("Masculino");
+        this.getP().get(1).setMedico(this.getM().get(0));
         this.getP().get(2).setNombre("Sebastian");
         this.getP().get(2).setApellido("Hidalgo");
         this.getP().get(2).setCedula("3333");
@@ -140,6 +142,24 @@ public class Hospital {
                 return i;
             }
         }
+        for(int i=0;i<this.p.size();i++){
+            if(cadena.equals(this.p.get(i).cedula)){
+                return i;
+            }
+        }
+        return 0;
+    }
+    public int buscarMedico(String cadena){
+        
+        for(int i=0;i<this.m.size();i++){
+            if(cadena.equals(this.m.get(i).cedula)){
+                return i;
+            }
+        }
+        return 0;
+    }
+    public int buscarPaciente(String cadena){
+        
         for(int i=0;i<this.p.size();i++){
             if(cadena.equals(this.p.get(i).cedula)){
                 return i;
