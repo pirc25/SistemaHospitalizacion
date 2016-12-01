@@ -45,6 +45,8 @@ public class SistemaHospitalario {
                             hosp.getS().registrarNuevoMedico(hosp.getM(),a);
                         case 2:
                         case 3:
+                            Medico c=new Medico();
+                            hosp.getS().verListadeMedicos(hosp.getM(),c);
                             
                         default: 
                             break;

@@ -48,4 +48,9 @@ public class Secretario extends Usuario{
         n.getConsultorio().setNumero(sc.nextInt());
                    
     }
+     public void verListadeMedicos (ArrayList<Medico>m,Medico n){
+         for(int i=0; i<m.size();i++){
+             System.out.println(m.get(i).getNombre()+" "+m.get(i).getApellido()+" "+m.get(i).getEspecialidad()+"\n");
+         }
+     }
 }
