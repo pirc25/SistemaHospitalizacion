@@ -56,12 +56,17 @@ public class SistemaHospitalario {
                 case 2://medico
                     int pos=hosp.buscarPoscicion(ci);
                     System.out.println("Bienvenido Dr."+hosp.getM().get(pos).getNombre()+" "+hosp.getM().get(pos).getApellido()+"\n");
-                    System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Visualizar Historia Laboral\n4)Salir\n\nEscoja una opcion: ");
+                    System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Editar Historias Clinicas\n4)Salir\n\nEscoja una opcion: ");
                     int y=sc.nextInt();
 
                     switch(y){
                         case 1:
+                            hosp.getM().get(pos).verPacientes(hosp.getP());
                         case 2:
+                            System.out.println("Ingrese cedula del paciente que desea editar: ");
+                            String ci2=sc.nextLine();
+                            int i=hosp.buscarPoscicion(ci2);
+                            hosp.getM().get(pos).atenderPaciente(hosp.getP().get(i));
                         case 3:
                         default: 
                             break;
