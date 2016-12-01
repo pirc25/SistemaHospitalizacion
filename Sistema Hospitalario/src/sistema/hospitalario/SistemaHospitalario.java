@@ -75,7 +75,9 @@ public class SistemaHospitalario {
                             hosp.getM().get(pos).atenderPaciente(hosp);
                             break;
                         case 3:
+                            hosp.getM().get(pos).editarPaciente(hosp);
                             break;
+                        
                         default: 
                             break;
                     }

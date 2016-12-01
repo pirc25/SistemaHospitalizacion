@@ -27,33 +27,7 @@ public class Medico extends Usuario{
     public void setConsultorio(Consultorio consultorio) {
         this.consultorio = consultorio;
     }   
-    public void verPacientes(ArrayList<Paciente> p){
-        for(int i=0;i<p.size();i++){
-            if(p.get(i).getMedico()==this){
-                System.out.printf("\n%-10s%-10s%-10s",p.get(i).getNombre(),p.get(i).getApellido(),p.get(i).getHistoriaClinica().getEstado());
-            }
-        }
-        System.out.println();
-    }
-    public void atenderPaciente(Hospital h){
-        Scanner sc=new Scanner(System.in);
-        
-        for(int i=0;i<h.getP().size();i++){
-            if(h.getP().get(i).getMedico()==this){
-                System.out.printf("\n%s %10s%10s",h.getP().get(i).getNombre(),h.getP().get(i).getApellido(),h.getP().get(i).getHistoriaClinica().getEstado());
-            }
-        }
-        System.out.println("\n\nIngrese cedula del paciente que desea registrar: ");
-        String ci=sc.nextLine();
-        int i=h.buscarPaciente(cedula);
-        
-        if("Enfermo".equals(h.getP().get(i).getHistoriaClinica().getEstado())){
-            h.getP().get(i).getHistoriaClinica().setEstado(1);
-        }else if("En tratamiento".equals(h.getP().get(i).getHistoriaClinica().getEstado())){
-           h.getP().get(i).getHistoriaClinica().setEstado(2);
-        }
-    }
-
+     
     public Medico() {
         this.especialidad ="";
         this.consultorio =new Consultorio();
@@ -72,16 +46,18 @@ public class Medico extends Usuario{
         System.out.println("Especialidad: "+this.getEspecialidad());
         System.out.println("Consultorio: "+this.consultorio.getNumero());
     }
+    
+    
     public void editarPaciente(Hospital h){        
         Scanner sc=new Scanner(System.in);
         
         for(int i=0;i<h.getP().size();i++){
             if(h.getP().get(i).getMedico()==this){
-                System.out.printf("\n%s %10s%10s",h.getP().get(i).getNombre(),h.getP().get(i).getApellido(),h.getP().get(i).getHistoriaClinica().getEstado());
+                System.out.printf("\n%-10s%-10s%-15s%-15s",h.getP().get(i).getNombre(),h.getP().get(i).getApellido(),h.getP().get(i).getCedula(),h.getP().get(i).getHistoriaClinica().getEstado());
             }
         }
         
-        System.out.println("\n\nIngrese cedula del paciente que desea editar: ");
+        System.out.print("\n\nIngrese cedula del paciente que desea editar: ");
         String ci=sc.nextLine();
         
         int i=h.buscarPaciente(cedula);
@@ -93,4 +69,33 @@ public class Medico extends Usuario{
         h.getP().get(i).getHistoriaClinica().setAlergia(sc.nextLine());
     }
     
+    
+    public void atenderPaciente(Hospital h){
+        Scanner sc=new Scanner(System.in);
+        
+        for(int i=0;i<h.getP().size();i++){
+            if(h.getP().get(i).getMedico()==this){
+                System.out.printf("\n%-10s%-10s%-15s%-15s",h.getP().get(i).getNombre(),h.getP().get(i).getApellido(),h.getP().get(i).getCedula(),h.getP().get(i).getHistoriaClinica().getEstado());
+            }
+        }
+        System.out.print("\n\nIngrese cedula del paciente que desea registrar: ");
+        String ci=sc.nextLine();
+        int i=h.buscarPaciente(cedula);
+        
+        if("Enfermo".equals(h.getP().get(i).getHistoriaClinica().getEstado())){
+            h.getP().get(i).getHistoriaClinica().setEstado(1);
+        }else if("En tratamiento".equals(h.getP().get(i).getHistoriaClinica().getEstado())){
+           h.getP().get(i).getHistoriaClinica().setEstado(2);
+        }
+    }
+    
+    
+    public void verPacientes(ArrayList<Paciente> p){
+        for(int i=0;i<p.size();i++){
+            if(p.get(i).getMedico()==this){
+                System.out.printf("\n%-10s%-10s%-15s%-15s",p.get(i).getNombre(),p.get(i).getApellido(),p.get(i).getCedula(),p.get(i).getHistoriaClinica().getEstado());
+            }
+        }
+        System.out.println();
+    }
 }
