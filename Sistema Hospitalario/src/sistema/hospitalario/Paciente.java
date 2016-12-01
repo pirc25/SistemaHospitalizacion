@@ -13,7 +13,8 @@ public class Paciente extends Usuario{
     private Medico medico;
     private HistoriaClinica historiaClinica;
     private Cuarto cuarto;
-   
+    
+        
    
 
     public Medico getMedico() {
@@ -59,4 +60,3 @@ public class Paciente extends Usuario{
         System.out.println(this.getHistoriaClinica().getTipoSangre());
     }
 }
-
