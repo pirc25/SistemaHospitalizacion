@@ -22,7 +22,7 @@ public class SistemaHospitalario {
         
         Hospital hosp=new Hospital();
         Scanner sc=new Scanner(System.in);
-        hosp.cargarDatos();
+        cargarDatos(hosp);
         boolean b=false;
         int opc;
         
@@ -51,8 +51,8 @@ public class SistemaHospitalario {
                                 hosp.getS().registrarNuevoMedico(hosp.getM(),a);
                                 break; 
                             case 2:
-                               Paciente p=new Paciente();
-                               hosp.getS().registrarNuevoPaciente(hosp.getP(),p);
+                                Paciente p=new Paciente();
+                                hosp.getS().registrarNuevoPaciente(hosp.getP(),p);
                                 break; 
 
                             case 3:
@@ -60,9 +60,9 @@ public class SistemaHospitalario {
                                 hosp.getS().verListadeMedicos(hosp.getM(),c);
                                 break;
                             case 4:
-                                 Paciente d=new Paciente();
-                                 hosp.getS().verListadePacientes (hosp.getP(),d);
-                                 break;
+                                Paciente d=new Paciente();
+                                hosp.getS().verListadePacientes (hosp.getP(),d);
+                                break;
                             case 5:
                                 break;
                             default: 
@@ -74,7 +74,7 @@ public class SistemaHospitalario {
                 
                 case 2://medico
                     
-                    int pos=hosp.buscarPoscicion(ci);
+                    int pos=buscarPoscicion(ci,hosp);
                     System.out.println("Bienvenido Dr."+hosp.getM().get(pos).getNombre()+" "+hosp.getM().get(pos).getApellido()+"\n");
                     int y;
                     do{
@@ -102,7 +102,7 @@ public class SistemaHospitalario {
                 
                 case 3://paciente
                     
-                    int pos2=hosp.buscarPoscicion(ci);
+                    int pos2=buscarPoscicion(ci,hosp);
                     System.out.println("Bienvenido Sr."+hosp.getP().get(pos2).getNombre()+" "+hosp.getP().get(pos2).getApellido());
                     int z;
                     do{
@@ -127,13 +127,14 @@ public class SistemaHospitalario {
                 break;
                 
                 default:
-                    System.out.println("\nCedula inválida, vuelva a ingresar");
+                    System.out.println("\n\tCedula inválida!, vuelva a ingresar");
                     b=false;
             }
         } 
     }
     
     public static int buscar(String cadena, Hospital h){
+        
         int opcion=0;
         if(cadena.equals(h.getS().getCedula())){
             opcion=1;
@@ -163,6 +164,59 @@ public class SistemaHospitalario {
                 return i;
             }
         }
-        return 0;
+        return -1;
+    }
+    public static void cargarDatos(Hospital h){
+        //Carga de Secretario
+        h.getS().setNombre("Juan");
+        h.getS().setApellido("Vasconez");
+        h.getS().setCedula("33333");
+        
+        //Medicos
+        for(int i=0;i<2;i++){
+            Medico med=new Medico();
+            h.getM().add(med);
+        }
+        h.getM().get(0).setNombre("Enrique");
+        h.getM().get(0).setApellido("Vasconez");
+        h.getM().get(0).setCedula("11111");
+        h.getM().get(0).setEspecialidad("Cardiologo");
+        h.getM().get(1).setNombre("Javier");
+        h.getM().get(1).setApellido("Velazques");
+        h.getM().get(1).setCedula("12222");
+        h.getM().get(1).setEspecialidad("Pediatra");
+        
+        //Pacientes
+        for(int i=0;i<6;i++){
+            Paciente pac = new Paciente();
+            h.getP().add(pac);
+        }
+        h.getP().get(0).setNombre("Enrique");
+        h.getP().get(0).setApellido("Rivera");
+        h.getP().get(0).setCedula("21111");
+        h.getP().get(0).setSexo("Masculino");
+        h.getP().get(0).setMedico(h.getM().get(0));
+        h.getP().get(1).setNombre("Juan");
+        h.getP().get(1).setApellido("Perez");
+        h.getP().get(1).setCedula("22222");
+        h.getP().get(1).setSexo("Masculino");
+        h.getP().get(1).setMedico(h.getM().get(0));
+        h.getP().get(2).setNombre("Sebastian");
+        h.getP().get(2).setApellido("Hidalgo");
+        h.getP().get(2).setCedula("23333");
+        h.getP().get(2).setSexo("Masculino");
+        h.getP().get(2).setMedico(h.getM().get(1));
+        h.getP().get(3).setNombre("Jose");
+        h.getP().get(3).setApellido("Rojas");
+        h.getP().get(3).setCedula("24444");
+        h.getP().get(3).setSexo("Masculino");
+        h.getP().get(3).setMedico(h.getM().get(1));
+        h.getP().get(4).setNombre("Maria");
+        h.getP().get(4).setApellido("Gonzalez");
+        h.getP().get(4).setCedula("25555");
+        h.getP().get(4).setSexo("Femenino");
+        h.getP().get(4).setMedico(h.getM().get(0));
+        
     }
 }
+
