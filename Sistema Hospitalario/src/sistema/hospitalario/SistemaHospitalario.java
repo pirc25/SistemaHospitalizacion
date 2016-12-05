@@ -23,19 +23,22 @@ public class SistemaHospitalario {
         Hospital hosp=new Hospital();
         Scanner sc=new Scanner(System.in);
         hosp.cargarDatos();
+        boolean b=false;
+        int opc;
         
-            System.out.println("\t\t\tSistema Hospitalario");
-            System.out.print("\nIngrese su cedula: ");
+        System.out.println("\t\t\tSistema Hospitalario");
+        while(b==false){ 
             
-            String ci;
-            ci=sc.nextLine();
-            
-            int opc;
+            b=true;
+            System.out.print("\nIngrese su cedula: ");            
+            String ci=sc.nextLine();
+                        
             opc=buscar(ci,hosp);
                
             switch(opc){
                 
                 case 1://secretario
+                    
                     System.out.println("Bienvenido Sr."+hosp.getS().getNombre()+" "+hosp.getS().getApellido()+"\n");
                     int x;
                     do{
@@ -48,8 +51,8 @@ public class SistemaHospitalario {
                                 hosp.getS().registrarNuevoMedico(hosp.getM(),a);
                                 break; 
                             case 2:
-                               Paciente b=new Paciente();
-                               hosp.getS().registrarNuevoPaciente(hosp.getP(),b);
+                               Paciente p=new Paciente();
+                               hosp.getS().registrarNuevoPaciente(hosp.getP(),p);
                                 break; 
 
                             case 3:
@@ -59,13 +62,18 @@ public class SistemaHospitalario {
                             case 4:
                                  Paciente d=new Paciente();
                                  hosp.getS().verListadePacientes (hosp.getP(),d);
+                                 break;
+                            case 5:
+                                break;
                             default: 
                                 System.out.println("Opción inválida, vuelva a ingresar");
                                 break;
                         }
                     }while(x!=5);
-                    break;
+                break;
+                
                 case 2://medico
+                    
                     int pos=hosp.buscarPoscicion(ci);
                     System.out.println("Bienvenido Dr."+hosp.getM().get(pos).getNombre()+" "+hosp.getM().get(pos).getApellido()+"\n");
                     int y;
@@ -83,14 +91,17 @@ public class SistemaHospitalario {
                             case 3:
                                 hosp.getM().get(pos).editarPaciente(hosp);
                                 break;
-
+                            case 4:
+                                break;
                             default: 
                                 System.out.println("Opción inválida, vuelva a ingresar");
                                 break;
                         }
                     }while(y!=4);
-                    break;
+                break;
+                
                 case 3://paciente
+                    
                     int pos2=hosp.buscarPoscicion(ci);
                     System.out.println("Bienvenido Sr."+hosp.getP().get(pos2).getNombre()+" "+hosp.getP().get(pos2).getApellido());
                     int z;
@@ -101,20 +112,25 @@ public class SistemaHospitalario {
 
                         switch(z){
                             case 1:
-
+                                break;
                             case 2:
+                                break;
                             case 3:
+                                break;
+                            case 4:
+                                break;
                             default:
                                 System.out.println("Opción inválida, vuelva a ingresar");
                                 break;
                         }
                     }while(z!=4);
-                    break;
+                break;
+                
                 default:
-                    System.out.print("\nUsuario no encontrado\n");
+                    System.out.println("\nCedula inválida, vuelva a ingresar");
+                    b=false;
             }
-         
-      
+        } 
     }
     
     public static int buscar(String cadena, Hospital h){
