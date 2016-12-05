@@ -16,14 +16,14 @@ public class Hospital {
     private String dirección;
     private ArrayList<Paciente>p;
     private ArrayList<Medico>m;
-    private Secretario s;
+    private Secretario secretario;
 
-    public Secretario getS() {
-        return s;
+    public Secretario getSecretario() {
+        return secretario;
     }
 
-    public void setS(Secretario s) {
-        this.s = s;
+    public void setS(Secretario secretario) {
+        this.secretario = secretario;
     }
     public String getNombre() {
         return nombre;
@@ -62,7 +62,7 @@ public class Hospital {
         this.dirección ="";
         this.p=new ArrayList();
         this.m=new ArrayList();
-        this.s=new Secretario();
+        this.secretario=new Secretario();
     }
 
     public Hospital(String nombre, String dirección) {
@@ -70,7 +70,7 @@ public class Hospital {
         this.dirección = dirección;
         this.p=new ArrayList();
         this.m=new ArrayList();
-        this.s=new Secretario();
+        this.secretario=new Secretario();
     }
     
     public int buscarMedico(String cadena){

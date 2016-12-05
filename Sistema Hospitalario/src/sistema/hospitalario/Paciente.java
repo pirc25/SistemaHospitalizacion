@@ -9,13 +9,11 @@ package sistema.hospitalario;
  *
  * @author Richard
  */
-public class Paciente extends Usuario{
+public class Paciente extends Usuario {
+
     private Medico medico;
     private HistoriaClinica historiaClinica;
     private Cuarto cuarto;
-    
-        
-   
 
     public Medico getMedico() {
         return medico;
@@ -40,12 +38,12 @@ public class Paciente extends Usuario{
     public void setCuarto(Cuarto cuarto) {
         this.cuarto = cuarto;
     }
-    public Paciente(){
-        this.medico=new Medico();
-        this.historiaClinica= new HistoriaClinica();
-        this.cuarto=new Cuarto();
+
+    public Paciente() {
+        this.medico = new Medico();
+        this.historiaClinica = new HistoriaClinica();
+        this.cuarto = new Cuarto();
     }
-            
 
     public Paciente(Medico medico, HistoriaClinica historiaClinica, Cuarto cuarto) {
         this.medico = medico;
@@ -53,8 +51,7 @@ public class Paciente extends Usuario{
         this.cuarto = cuarto;
     }
 
-    public void verHistoriaClinica (HistoriaClinica historiaClinica){
-        this.getHistoriaClinica();
+    public void verHistoriaClinica() {
         System.out.println(this.getHistoriaClinica().getEstado());
         System.out.println(this.getHistoriaClinica().getAlergia());
         System.out.println(this.getHistoriaClinica().getTipoSangre());

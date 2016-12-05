@@ -10,6 +10,7 @@ package sistema.hospitalario;
  * @author Richard
  */
 public class HistoriaClinica {
+
     private String estado;
     private String alergia;
     private String tipoSangre;
@@ -27,7 +28,7 @@ public class HistoriaClinica {
     }
 
     public void setEstado(int x) {
-        switch  (x){
+        switch (x) {
             case 0:
                 this.estado = "Enfermo";
                 break;
@@ -40,15 +41,13 @@ public class HistoriaClinica {
             default:
                 this.estado = "Enfermo";
                 break;
-            }
+        }
     }
 
     public void setAlergia(String alergia) {
         this.alergia = alergia;
     }
 
-    
-    
     public void setTipoSangre(String tipoSangre) {
         this.tipoSangre = tipoSangre;
     }
@@ -65,8 +64,13 @@ public class HistoriaClinica {
         this.tipoSangre = "";
     }
 
-    
-   
-    
-    
+    @Override
+    public String toString() {
+        String str;
+        str = "Estado: " + getEstado() + "\n";
+        str += "Alergia: " + getAlergia() + "\n";
+        str += "Tipo de sangre: " + getTipoSangre();
+        return str;
+    }
+
 }

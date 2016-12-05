@@ -11,77 +11,75 @@ import java.util.Scanner;
  *
  * @author USRKAP
  */
-
 public class SistemaHospitalario {
 
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String[] args) {
-        
-        Hospital hosp=new Hospital();
-        Scanner sc=new Scanner(System.in);
-        cargarDatos(hosp);
-        boolean b=false;
-        int opc;
-        
-        System.out.println("\t\t\tSistema Hospitalario");
-        while(b==false){ 
-            
-            b=true;
-            System.out.print("\nIngrese su cedula: ");            
-            String ci=sc.nextLine();
-                        
-            opc=buscar(ci,hosp);
-               
-            switch(opc){
-                
-                case 1://secretario
-                    
-                    System.out.println("Bienvenido Sr."+hosp.getS().getNombre()+" "+hosp.getS().getApellido()+"\n");
-                    int x;
-                    do{
-                        System.out.print("1)Ingresar Nuevo Medico\n2)Ingresar Nuevo Paciente\n3)Ver Lista de Medicos\n4)Ver Lista de Pacientes\n5)Salir\n\nEscoja una opcion: ");
-                        x=sc.nextInt();
 
-                        switch(x){
+        Hospital hosp = new Hospital();
+        Scanner sc = new Scanner(System.in);
+        cargarDatos(hosp);
+        boolean b = false;
+        int opc;
+
+        System.out.println("\t\t\tSistema Hospitalario");
+        while (b == false) {
+
+            b = true;
+            System.out.print("\nIngrese su cedula: ");
+            String ci = sc.nextLine();
+
+            opc = buscar(ci, hosp);
+
+            switch (opc) {
+
+                case 1://secretario
+
+                    System.out.println("Bienvenido Sr." + hosp.getSecretario().getNombre() + " " + hosp.getSecretario().getApellido() + "\n");
+                    int x;
+                    do {
+                        System.out.print("1)Ingresar Nuevo Medico\n2)Ingresar Nuevo Paciente\n3)Ver Lista de Medicos\n4)Ver Lista de Pacientes\n5)Salir\n\nEscoja una opcion: ");
+                        x = sc.nextInt();
+
+                        switch (x) {
                             case 1:
-                                Medico a=new Medico();
-                                hosp.getS().registrarNuevoMedico(hosp.getM(),a);
-                                break; 
+                                Medico a = new Medico();
+                                hosp.getSecretario().registrarNuevoMedico(hosp.getM(), a);
+                                break;
                             case 2:
-                                Paciente p=new Paciente();
-                                hosp.getS().registrarNuevoPaciente(hosp.getP(),p);
-                                break; 
+                                Paciente p = new Paciente();
+                                hosp.getSecretario().registrarNuevoPaciente(hosp.getP(), p);
+                                break;
 
                             case 3:
-                                Medico c=new Medico();
-                                hosp.getS().verListadeMedicos(hosp.getM(),c);
+                                Medico c = new Medico();
+                                hosp.getSecretario().verListadeMedicos(hosp.getM(), c);
                                 break;
                             case 4:
-                                Paciente d=new Paciente();
-                                hosp.getS().verListadePacientes (hosp.getP(),d);
+                                Paciente d = new Paciente();
+                                hosp.getSecretario().verListadePacientes(hosp.getP(), d);
                                 break;
                             case 5:
                                 break;
-                            default: 
+                            default:
                                 System.out.println("Opción inválida, vuelva a ingresar");
                                 break;
                         }
-                    }while(x!=5);
-                break;
-                
-                case 2://medico
-                    
-                    int pos=buscarPoscicion(ci,hosp);
-                    System.out.println("Bienvenido Dr."+hosp.getM().get(pos).getNombre()+" "+hosp.getM().get(pos).getApellido()+"\n");
-                    int y;
-                    do{
-                        System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Editar Historias Clinicas\n4)Salir\n\nEscoja una opcion: ");
-                        y=sc.nextInt();
+                    } while (x != 5);
+                    break;
 
-                        switch(y){
+                case 2://medico
+
+                    int pos = buscarPoscicion(ci, hosp);
+                    System.out.println("Bienvenido Dr." + hosp.getM().get(pos).getNombre() + " " + hosp.getM().get(pos).getApellido() + "\n");
+                    int y;
+                    do {
+                        System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Editar Historias Clinicas\n4)Salir\n\nEscoja una opcion: ");
+                        y = sc.nextInt();
+
+                        switch (y) {
                             case 1:
                                 hosp.getM().get(pos).verPacientes(hosp.getP());
                                 break;
@@ -93,24 +91,24 @@ public class SistemaHospitalario {
                                 break;
                             case 4:
                                 break;
-                            default: 
+                            default:
                                 System.out.println("Opción inválida, vuelva a ingresar");
                                 break;
                         }
-                    }while(y!=4);
-                break;
-                
+                    } while (y != 4);
+                    break;
+
                 case 3://paciente
-                    
-                    int pos2=buscarPoscicion(ci,hosp);
-                    System.out.println("Bienvenido Sr."+hosp.getP().get(pos2).getNombre()+" "+hosp.getP().get(pos2).getApellido());
+
+                    int pos2 = buscarPoscicion(ci, hosp);
+                    System.out.println("Bienvenido Sr." + hosp.getP().get(pos2).getNombre() + " " + hosp.getP().get(pos2).getApellido());
                     int z;
-                    do{
+                    do {
                         System.out.print("\n1)Agendar una cita\n2)Ver Historia Clinica\n3)Visualisar Informacion de Pagos\n4)Salir\n\nEscoja una opcion: ");
 
-                        z=sc.nextInt();
+                        z = sc.nextInt();
 
-                        switch(z){
+                        switch (z) {
                             case 1:
                                 break;
                             case 2:
@@ -123,58 +121,60 @@ public class SistemaHospitalario {
                                 System.out.println("Opción inválida, vuelva a ingresar");
                                 break;
                         }
-                    }while(z!=4);
-                break;
-                
+                    } while (z != 4);
+                    break;
+
                 default:
                     System.out.println("\n\tCedula inválida!, vuelva a ingresar");
-                    b=false;
+                    b = false;
             }
-        } 
+        }
     }
-    
-    public static int buscar(String cadena, Hospital h){
-        
-        int opcion=0;
-        if(cadena.equals(h.getS().getCedula())){
-            opcion=1;
+
+    public static int buscar(String cadena, Hospital h) {
+
+        int opcion = 0;
+        if (cadena.equals(h.getSecretario().getCedula())) {
+            opcion = 1;
         }
-        for(int i=0;i<h.getM().size();i++){
-            if(cadena.equals(h.getM().get(i).getCedula())){
-                opcion=2;
+        for (int i = 0; i < h.getM().size(); i++) {
+            if (cadena.equals(h.getM().get(i).getCedula())) {
+                opcion = 2;
             }
         }
-        for(int i=0;i<h.getP().size();i++){
-            if(cadena.equals(h.getP().get(i).getCedula())){
-                opcion=3;
+        for (int i = 0; i < h.getP().size(); i++) {
+            if (cadena.equals(h.getP().get(i).getCedula())) {
+                opcion = 3;
             }
         }
-        
+
         return opcion;
     }
-    public static int buscarPoscicion(String cadena,Hospital h){
-        
-        for(int i=0;i<h.getM().size();i++){
-            if(cadena.equals(h.getM().get(i).getCedula())){
+
+    public static int buscarPoscicion(String cadena, Hospital h) {
+
+        for (int i = 0; i < h.getM().size(); i++) {
+            if (cadena.equals(h.getM().get(i).getCedula())) {
                 return i;
             }
         }
-        for(int i=0;i<h.getP().size();i++){
-            if(cadena.equals(h.getP().get(i).getCedula())){
+        for (int i = 0; i < h.getP().size(); i++) {
+            if (cadena.equals(h.getP().get(i).getCedula())) {
                 return i;
             }
         }
         return -1;
     }
-    public static void cargarDatos(Hospital h){
+
+    public static void cargarDatos(Hospital h) {
         //Carga de Secretario
-        h.getS().setNombre("Juan");
-        h.getS().setApellido("Vasconez");
-        h.getS().setCedula("0123456789");
-        
+        h.getSecretario().setNombre("Juan");
+        h.getSecretario().setApellido("Vasconez");
+        h.getSecretario().setCedula("0123456789");
+
         //Medicos
-        for(int i=0;i<2;i++){
-            Medico med=new Medico();
+        for (int i = 0; i < 2; i++) {
+            Medico med = new Medico();
             h.getM().add(med);
         }
         h.getM().get(0).setNombre("Enrique");
@@ -185,9 +185,9 @@ public class SistemaHospitalario {
         h.getM().get(1).setApellido("Velazques");
         h.getM().get(1).setCedula("1234567891");
         h.getM().get(1).setEspecialidad("Pediatra");
-        
+
         //Pacientes
-        for(int i=0;i<6;i++){
+        for (int i = 0; i < 6; i++) {
             Paciente pac = new Paciente();
             h.getP().add(pac);
         }
@@ -216,7 +216,6 @@ public class SistemaHospitalario {
         h.getP().get(4).setCedula("5555555555");
         h.getP().get(4).setSexo("Femenino");
         h.getP().get(4).setMedico(h.getM().get(0));
-        
+
     }
 }
-
