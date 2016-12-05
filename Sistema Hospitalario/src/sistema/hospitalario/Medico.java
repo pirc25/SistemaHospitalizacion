@@ -63,8 +63,9 @@ public class Medico extends Usuario{
             System.out.println("\nPaciente "+h.getP().get(i).getNombre()+" "+h.getP().get(i).getApellido());       
             System.out.print("\nIngrese su tipo de sangre: ");
             h.getP().get(i).getHistoriaClinica().setTipoSangre(sc.nextLine());        
-            System.out.print("\nIngrese alergias: ");
+            System.out.print("Ingrese alergias: ");
             h.getP().get(i).getHistoriaClinica().setAlergia(sc.nextLine());
+            System.out.print("\n");
         }
     }
     
@@ -77,8 +78,7 @@ public class Medico extends Usuario{
         System.out.print("Ingrese cedula del paciente que desea registrar: ");
         String ci=sc.nextLine();
         int i=h.buscarPaciente(ci);
-        
-        System.out.print(i);
+       
         if(i==-1){
             System.out.println("Paciente no encontrado\n");
         }else{
@@ -87,6 +87,7 @@ public class Medico extends Usuario{
             }else if("En Tratamiento".equals(h.getP().get(i).getHistoriaClinica().getEstado())){
                 h.getP().get(i).getHistoriaClinica().setEstado(2);
             }
+            System.out.println("Registro finalizado con exito!\n");
         }    
     }
     

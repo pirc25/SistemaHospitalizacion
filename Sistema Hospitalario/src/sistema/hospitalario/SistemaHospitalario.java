@@ -170,7 +170,7 @@ public class SistemaHospitalario {
         //Carga de Secretario
         h.getS().setNombre("Juan");
         h.getS().setApellido("Vasconez");
-        h.getS().setCedula("33333");
+        h.getS().setCedula("0123456789");
         
         //Medicos
         for(int i=0;i<2;i++){
@@ -179,11 +179,11 @@ public class SistemaHospitalario {
         }
         h.getM().get(0).setNombre("Enrique");
         h.getM().get(0).setApellido("Vasconez");
-        h.getM().get(0).setCedula("11111");
+        h.getM().get(0).setCedula("1234567890");
         h.getM().get(0).setEspecialidad("Cardiologo");
         h.getM().get(1).setNombre("Javier");
         h.getM().get(1).setApellido("Velazques");
-        h.getM().get(1).setCedula("12222");
+        h.getM().get(1).setCedula("1234567891");
         h.getM().get(1).setEspecialidad("Pediatra");
         
         //Pacientes
@@ -193,27 +193,27 @@ public class SistemaHospitalario {
         }
         h.getP().get(0).setNombre("Enrique");
         h.getP().get(0).setApellido("Rivera");
-        h.getP().get(0).setCedula("21111");
+        h.getP().get(0).setCedula("1111111111");
         h.getP().get(0).setSexo("Masculino");
         h.getP().get(0).setMedico(h.getM().get(0));
         h.getP().get(1).setNombre("Juan");
         h.getP().get(1).setApellido("Perez");
-        h.getP().get(1).setCedula("22222");
+        h.getP().get(1).setCedula("2222222222");
         h.getP().get(1).setSexo("Masculino");
         h.getP().get(1).setMedico(h.getM().get(0));
         h.getP().get(2).setNombre("Sebastian");
         h.getP().get(2).setApellido("Hidalgo");
-        h.getP().get(2).setCedula("23333");
+        h.getP().get(2).setCedula("333333333");
         h.getP().get(2).setSexo("Masculino");
         h.getP().get(2).setMedico(h.getM().get(1));
         h.getP().get(3).setNombre("Jose");
         h.getP().get(3).setApellido("Rojas");
-        h.getP().get(3).setCedula("24444");
+        h.getP().get(3).setCedula("4444444444");
         h.getP().get(3).setSexo("Masculino");
         h.getP().get(3).setMedico(h.getM().get(1));
         h.getP().get(4).setNombre("Maria");
         h.getP().get(4).setApellido("Gonzalez");
-        h.getP().get(4).setCedula("25555");
+        h.getP().get(4).setCedula("5555555555");
         h.getP().get(4).setSexo("Femenino");
         h.getP().get(4).setMedico(h.getM().get(0));
         
