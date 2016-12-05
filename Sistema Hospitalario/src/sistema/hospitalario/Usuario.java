@@ -5,12 +5,12 @@
  */
 package sistema.hospitalario;
 
-
 /**
  *
  * @author Admini
  */
 public class Usuario {
+
     protected String nombre;
     protected String apellido;
     protected String cedula;
@@ -49,7 +49,7 @@ public class Usuario {
     public void setFechadenacimiento(String fechadenacimiento) {
         this.fechadenacimiento = fechadenacimiento;
     }
-    
+
     public String getSexo() {
         return sexo;
     }
@@ -58,12 +58,12 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    public Usuario(){
-    nombre="";
-    apellido="";
-    cedula="";
-    fechadenacimiento="";
-    sexo="";
-    
-}
+    public Usuario() {
+        nombre = "";
+        apellido = "";
+        cedula = "";
+        fechadenacimiento = "";
+        sexo = "";
+
+    }
 }

@@ -10,6 +10,7 @@ package sistema.hospitalario;
  * @author USRKAP
  */
 public class Turno {
+
     private int hora;
     private int minuto;
     private int dia;
@@ -35,20 +36,23 @@ public class Turno {
     public int getAño() {
         return año;
     }
-    
-    public void imprimeHora(){
-        System.out.print(this.getHora()+":"+this.getMinuto());
+
+    public void imprimeHora() {
+        System.out.print(this.getHora() + ":" + this.getMinuto());
     }
-    public void imprimeFecha(){
-        System.out.print(this.getDia()+"/"+this.getMes()+"/"+this.getAño());
+
+    public void imprimeFecha() {
+        System.out.print(this.getDia() + "/" + this.getMes() + "/" + this.getAño());
     }
-    public void setHora(int hora,int minuto){
-        this.hora=hora;
-        this.minuto=minuto;
+
+    public void setHora(int hora, int minuto) {
+        this.hora = hora;
+        this.minuto = minuto;
     }
-    public void setFecha(int dia,int mes,int año){
-        this.dia=dia;
-        this.mes=mes;
-        this.año=año;
+
+    public void setFecha(int dia, int mes, int año) {
+        this.dia = dia;
+        this.mes = mes;
+        this.año = año;
     }
 }

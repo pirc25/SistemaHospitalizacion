@@ -10,7 +10,8 @@ package sistema.hospitalario;
  * @author Richard
  */
 public class Cuarto {
-       private int num;
+
+    private int num;
 
     public int getNum() {
         return num;
@@ -23,11 +24,9 @@ public class Cuarto {
     public Cuarto(int num) {
         this.num = num;
     }
-    
+
     public Cuarto() {
         this.num = 0;
     }
 
-       
-    
 }

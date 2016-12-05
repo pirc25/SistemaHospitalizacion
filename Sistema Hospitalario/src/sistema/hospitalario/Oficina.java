@@ -10,6 +10,7 @@ package sistema.hospitalario;
  * @author Admini
  */
 public class Oficina {
+
     int numero;
 
     public int getNumero() {
@@ -19,7 +20,8 @@ public class Oficina {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    public Oficina(){
-        numero=(0);
+
+    public Oficina() {
+        numero = (0);
     }
 }

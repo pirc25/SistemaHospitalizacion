@@ -12,10 +12,11 @@ import java.util.ArrayList;
  * @author fabio
  */
 public class Hospital {
+
     private String nombre;
     private String dirección;
-    private ArrayList<Paciente>p;
-    private ArrayList<Medico>m;
+    private ArrayList<Paciente> p;
+    private ArrayList<Medico> m;
     private Secretario secretario;
 
     public Secretario getSecretario() {
@@ -25,6 +26,7 @@ public class Hospital {
     public void setS(Secretario secretario) {
         this.secretario = secretario;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -58,37 +60,38 @@ public class Hospital {
     }
 
     public Hospital() {
-        this.nombre ="";
-        this.dirección ="";
-        this.p=new ArrayList();
-        this.m=new ArrayList();
-        this.secretario=new Secretario();
+        this.nombre = "";
+        this.dirección = "";
+        this.p = new ArrayList();
+        this.m = new ArrayList();
+        this.secretario = new Secretario();
     }
 
     public Hospital(String nombre, String dirección) {
         this.nombre = nombre;
         this.dirección = dirección;
-        this.p=new ArrayList();
-        this.m=new ArrayList();
-        this.secretario=new Secretario();
+        this.p = new ArrayList();
+        this.m = new ArrayList();
+        this.secretario = new Secretario();
     }
-    
-    public int buscarMedico(String cadena){
-        
-        for(int i=0;i<this.m.size();i++){
-            if(cadena.equals(this.m.get(i).cedula)){
+
+    public int buscarMedico(String cadena) {
+
+        for (int i = 0; i < this.m.size(); i++) {
+            if (cadena.equals(this.m.get(i).cedula)) {
                 return i;
             }
         }
         return -1;
     }
-    public int buscarPaciente(String cadena){
-        
-        for(int i=0;i<this.getP().size();i++){
-            if(cadena.equals(this.getP().get(i).getCedula())){
+
+    public int buscarPaciente(String cadena) {
+
+        for (int i = 0; i < this.getP().size(); i++) {
+            if (cadena.equals(this.getP().get(i).getCedula())) {
                 return i;
             }
         }
         return -1;
-    }    
+    }
 }
