@@ -5,6 +5,8 @@
  */
 package sistema.hospitalario;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -110,6 +112,22 @@ public class SistemaHospitalario {
 
                         switch (z) {
                             case 1:
+                             System.out.println("Introduzca la fecha con formato dd/mm/yyyy h,m,s");
+                             Scanner tu = new Scanner(System.in); 
+                             String fecha = tu.nextLine();
+                             SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy h,m,s");
+                             Date testDate = null;
+                             String date = fecha;
+                             try{
+                                testDate = df.parse(date);
+                                System.out.println("Su turno es para: "+testDate);
+                             } catch (Exception e){ System.out.println("invalid format");}
+
+                             if (!df.format(testDate).equals(date)){
+                             System.out.println("Ingrese nuevamente la fecha");
+                             } else {
+                             System.out.println("Gracias");
+                              }    
                                 break;
                             case 2:
                                 break;
