@@ -7,6 +7,7 @@ package sistema.hospitalario;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -112,10 +113,10 @@ public class SistemaHospitalario {
 
                         switch (z) {
                             case 1:
-                             System.out.println("Introduzca la fecha con formato dd/mm/yyyy h,m,s");
-                             Scanner tu = new Scanner(System.in); 
+                             System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
+                             Scanner tu = new Scanner(System.in);
                              String fecha = tu.nextLine();
-                             SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy h,m,s");
+                             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh,mm,ss");
                              Date testDate = null;
                              String date = fecha;
                              try{
@@ -124,12 +125,13 @@ public class SistemaHospitalario {
                              } catch (Exception e){ System.out.println("invalid format");}
 
                              if (!df.format(testDate).equals(date)){
-                             System.out.println("Ingrese nuevamente la fecha");
+                             System.out.println("Ingrese");
                              } else {
                              System.out.println("Gracias");
                               }    
                                 break;
                             case 2:
+                                
                                 break;
                             case 3:
                                 break;
