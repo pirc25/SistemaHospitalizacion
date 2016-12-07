@@ -11,17 +11,17 @@ package sistema.hospitalario;
  */
 public class Oficina {
 
-    int numero;
+    String numero;
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
     public Oficina() {
-        numero = (0);
+        numero = "";
     }
 }

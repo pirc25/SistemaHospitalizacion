@@ -5,6 +5,9 @@
  */
 package sistema.hospitalario;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Richard
@@ -56,4 +59,5 @@ public class Paciente extends Usuario {
         System.out.println(this.getHistoriaClinica().getAlergia());
         System.out.println(this.getHistoriaClinica().getTipoSangre());
     }
+    
 }

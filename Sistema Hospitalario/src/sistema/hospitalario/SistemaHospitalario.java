@@ -48,7 +48,7 @@ public class SistemaHospitalario {
 
                 case 1://secretario
 
-                    System.out.println("Bienvenido Sr." + hosp.getSecretario().getNombre() + " " + hosp.getSecretario().getApellido() + "\n");
+                    System.out.println("\n   Bienvenido Sr." + hosp.getSecretario().getNombre() + " " + hosp.getSecretario().getApellido() + "\n");
                     int x=-1;
                     do {
                         System.out.print("1)Ingresar Nuevo Medico\n2)Ingresar Nuevo Paciente\n3)Ver Lista de Medicos\n4)Ver Lista de Pacientes\n5)Salir\n\nEscoja una opcion: ");
@@ -90,7 +90,7 @@ public class SistemaHospitalario {
                 case 2://medico
 
                     int pos = buscarPoscicion(ci, hosp);
-                    System.out.println("\n   Bienvenido Dr." + hosp.getM().get(pos).getNombre() + " " + hosp.getM().get(pos).getApellido() + "\n");
+                    System.out.println("\n   Bienvenid@ Dr." + hosp.getM().get(pos).getNombre() + " " + hosp.getM().get(pos).getApellido() + "\n");
                     int y=-1;
                     do {
                         System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Editar Historias Clinicas\n4)Salir\n\nEscoja una opcion: ");
@@ -124,7 +124,7 @@ public class SistemaHospitalario {
                 case 3://paciente
 
                     int pos2 = buscarPoscicion(ci, hosp);
-                    System.out.println("Bienvenido Sr." + hosp.getP().get(pos2).getNombre() + " " + hosp.getP().get(pos2).getApellido());
+                    System.out.println("\n   Bienvenid@ Sr." + hosp.getP().get(pos2).getNombre() + " " + hosp.getP().get(pos2).getApellido());
                     int z=-1;
                     do {
                         System.out.print("\n1)Agendar una cita\n2)Ver Historia Clinica\n3)Visualisar Informacion de Pagos\n4)Salir\n\nEscoja una opcion: ");
@@ -133,23 +133,25 @@ public class SistemaHospitalario {
 
                             switch (z) {
                                 case 1:
-                                 System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
-                                 Scanner tu = new Scanner(System.in);
-                                 String fecha = tu.nextLine();
-                                 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh,mm,ss");
-                                 Date testDate = null;
-                                 String date = fecha;
-                                 try{
-                                    testDate = df.parse(date);
-                                    System.out.println("Su turno es para: "+testDate);
-                                 } catch (Exception e){ System.out.println("invalid format");}
+                                    System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
+                                    Scanner tu = new Scanner(System.in);
+                                    String fecha = tu.nextLine();
+                                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh,mm,ss");
+                                    Date testDate = null;
+                                    String date = fecha;
+                                    try{
+                                        testDate = df.parse(date);
+                                        System.out.println("Su turno es para: "+testDate);
+                                    }catch(Exception e){
+                                        System.out.println("invalid format");
+                                    }
 
-                                 if (!df.format(testDate).equals(date)){
-                                 System.out.println("Ingrese");
-                                 } else {
-                                 System.out.println("Gracias");
-                                  }    
-                                    break;
+                                    if (!df.format(testDate).equals(date)){
+                                        System.out.println("Ingrese");
+                                    } else {
+                                        System.out.println("Gracias");
+                                    }    
+                                       break;
                                 case 2:
 
                                     break;
@@ -173,6 +175,7 @@ public class SistemaHospitalario {
                     System.out.print("\n\tCedula inválida!, presione enter para continuar...");
             }
             sc.nextLine();
+            System.out.print("\n\n\n\n");
         }
     }
 
@@ -239,27 +242,27 @@ public class SistemaHospitalario {
         h.getP().get(0).setNombre("Enrique");
         h.getP().get(0).setApellido("Rivera");
         h.getP().get(0).setCedula("1111111111");
-        h.getP().get(0).setSexo("Masculino");
+        h.getP().get(0).setSexo("M");
         h.getP().get(0).setMedico(h.getM().get(0));
         h.getP().get(1).setNombre("Juan");
         h.getP().get(1).setApellido("Perez");
         h.getP().get(1).setCedula("2222222222");
-        h.getP().get(1).setSexo("Masculino");
+        h.getP().get(1).setSexo("M");
         h.getP().get(1).setMedico(h.getM().get(0));
         h.getP().get(2).setNombre("Sebastian");
         h.getP().get(2).setApellido("Hidalgo");
         h.getP().get(2).setCedula("333333333");
-        h.getP().get(2).setSexo("Masculino");
+        h.getP().get(2).setSexo("M");
         h.getP().get(2).setMedico(h.getM().get(1));
         h.getP().get(3).setNombre("Jose");
         h.getP().get(3).setApellido("Rojas");
         h.getP().get(3).setCedula("4444444444");
-        h.getP().get(3).setSexo("Masculino");
+        h.getP().get(3).setSexo("M");
         h.getP().get(3).setMedico(h.getM().get(1));
         h.getP().get(4).setNombre("Maria");
         h.getP().get(4).setApellido("Gonzalez");
         h.getP().get(4).setCedula("5555555555");
-        h.getP().get(4).setSexo("Femenino");
+        h.getP().get(4).setSexo("F");
         h.getP().get(4).setMedico(h.getM().get(0));
 
     }

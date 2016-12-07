@@ -10,20 +10,21 @@ package sistema.hospitalario;
  * @author fabio
  */
 public class Consultorio {
-    private int numero;
+    private String numero;
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
     public Consultorio() {
+        numero="n/a";
     }
 
-    public Consultorio(int numero) {
+    public Consultorio(String numero) {
         this.numero = numero;
     }
     

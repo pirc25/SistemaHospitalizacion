@@ -11,22 +11,22 @@ package sistema.hospitalario;
  */
 public class Cuarto {
 
-    private int num;
+    private String num;
 
-    public int getNum() {
+    public String getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
-    public Cuarto(int num) {
+    public Cuarto(String num) {
         this.num = num;
     }
 
     public Cuarto() {
-        this.num = 0;
+        this.num = "n/a";
     }
 
 }
