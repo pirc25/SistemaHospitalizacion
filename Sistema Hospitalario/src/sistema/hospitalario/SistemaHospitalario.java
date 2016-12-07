@@ -7,7 +7,7 @@ package sistema.hospitalario;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -30,10 +30,18 @@ public class SistemaHospitalario {
         System.out.println("\t\t\tSistema Hospitalario");
         while (b == false) {
 
-            b = true;
-            System.out.print("\nIngrese su cedula: ");
+            
+            System.out.println("\nEscriba su cedula para acceder o 'SALIR' para cerrar el programa");
+            System.out.print("Ingrese a continuacion: ");
+            
             String ci = sc.nextLine();
-
+            
+            ci=ci.toUpperCase();
+            if("SALIR".equals(ci)){
+                b = true;
+                continue;
+            }
+            
             opc = buscar(ci, hosp);
 
             switch (opc) {
@@ -41,63 +49,75 @@ public class SistemaHospitalario {
                 case 1://secretario
 
                     System.out.println("Bienvenido Sr." + hosp.getSecretario().getNombre() + " " + hosp.getSecretario().getApellido() + "\n");
-                    int x;
+                    int x=-1;
                     do {
                         System.out.print("1)Ingresar Nuevo Medico\n2)Ingresar Nuevo Paciente\n3)Ver Lista de Medicos\n4)Ver Lista de Pacientes\n5)Salir\n\nEscoja una opcion: ");
-                        x = sc.nextInt();
+                        try{   
+                            x = sc.nextInt();
 
-                        switch (x) {
-                            case 1:
-                                Medico a = new Medico();
-                                hosp.getSecretario().registrarNuevoMedico(hosp.getM(), a);
-                                break;
-                            case 2:
-                                Paciente p = new Paciente();
-                                hosp.getSecretario().registrarNuevoPaciente(hosp.getP(), p);
-                                break;
+                            switch (x) {
+                                case 1:
+                                    Medico a = new Medico();
+                                    hosp.getSecretario().registrarNuevoMedico(hosp.getM(), a);
+                                    break;
+                                case 2:
+                                    Paciente p = new Paciente();
+                                    hosp.getSecretario().registrarNuevoPaciente(hosp.getP(), p);
+                                    break;
 
-                            case 3:
-                                Medico c = new Medico();
-                                hosp.getSecretario().verListadeMedicos(hosp.getM(), c);
-                                break;
-                            case 4:
-                                Paciente d = new Paciente();
-                                hosp.getSecretario().verListadePacientes(hosp.getP(), d);
-                                break;
-                            case 5:
-                                break;
-                            default:
-                                System.out.println("Opción inválida, vuelva a ingresar");
-                                break;
+                                case 3:
+                                    Medico c = new Medico();
+                                    hosp.getSecretario().verListadeMedicos(hosp.getM(), c);
+                                    break;
+                                case 4:
+                                    Paciente d = new Paciente();
+                                    hosp.getSecretario().verListadePacientes(hosp.getP(), d);
+                                    break;
+                                case 5:
+                                    System.out.print("\n   Presione enter para continuar...");
+                                    break;
+                                default:
+                                    System.out.println("   Opción inválida, vuelva a ingresar");
+                                    break;
+                            }
+                        }catch(InputMismatchException e){
+                            System.out.println("   Opción inválida, vuelva a ingresar");
                         }
+                        sc.nextLine();
                     } while (x != 5);
                     break;
 
                 case 2://medico
 
                     int pos = buscarPoscicion(ci, hosp);
-                    System.out.println("Bienvenido Dr." + hosp.getM().get(pos).getNombre() + " " + hosp.getM().get(pos).getApellido() + "\n");
-                    int y;
+                    System.out.println("\n   Bienvenido Dr." + hosp.getM().get(pos).getNombre() + " " + hosp.getM().get(pos).getApellido() + "\n");
+                    int y=-1;
                     do {
                         System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Editar Historias Clinicas\n4)Salir\n\nEscoja una opcion: ");
-                        y = sc.nextInt();
-
-                        switch (y) {
-                            case 1:
-                                hosp.getM().get(pos).verPacientes(hosp.getP());
-                                break;
-                            case 2:
-                                hosp.getM().get(pos).atenderPaciente(hosp);
-                                break;
-                            case 3:
-                                hosp.getM().get(pos).editarPaciente(hosp);
-                                break;
-                            case 4:
-                                break;
-                            default:
-                                System.out.println("Opción inválida, vuelva a ingresar");
-                                break;
+                        try{    
+                            y = sc.nextInt();
+                            
+                            switch (y) {
+                                case 1:
+                                    hosp.getM().get(pos).verPacientes(hosp.getP());
+                                    break;
+                                case 2:
+                                    hosp.getM().get(pos).atenderPaciente(hosp);
+                                    break;
+                                case 3:
+                                    hosp.getM().get(pos).editarPaciente(hosp);
+                                    break;
+                                case 4:
+                                    System.out.print("\n   Presione enter para continuar...");
+                                    break;
+                                default:
+                                    System.out.println("\n   Opción inválida, vuelva a ingresar\n");
+                                    break;
+                            }
+                        }catch(InputMismatchException e){
+                            System.out.println("\n   Opción inválida, vuelva a ingresar\n");
                         }
+                        sc.nextLine();    
                     } while (y != 4);
                     break;
 
@@ -105,49 +125,54 @@ public class SistemaHospitalario {
 
                     int pos2 = buscarPoscicion(ci, hosp);
                     System.out.println("Bienvenido Sr." + hosp.getP().get(pos2).getNombre() + " " + hosp.getP().get(pos2).getApellido());
-                    int z;
+                    int z=-1;
                     do {
                         System.out.print("\n1)Agendar una cita\n2)Ver Historia Clinica\n3)Visualisar Informacion de Pagos\n4)Salir\n\nEscoja una opcion: ");
+                        try{
+                            z = sc.nextInt();
 
-                        z = sc.nextInt();
+                            switch (z) {
+                                case 1:
+                                 System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
+                                 Scanner tu = new Scanner(System.in);
+                                 String fecha = tu.nextLine();
+                                 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh,mm,ss");
+                                 Date testDate = null;
+                                 String date = fecha;
+                                 try{
+                                    testDate = df.parse(date);
+                                    System.out.println("Su turno es para: "+testDate);
+                                 } catch (Exception e){ System.out.println("invalid format");}
 
-                        switch (z) {
-                            case 1:
-                             System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
-                             Scanner tu = new Scanner(System.in);
-                             String fecha = tu.nextLine();
-                             SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh,mm,ss");
-                             Date testDate = null;
-                             String date = fecha;
-                             try{
-                                testDate = df.parse(date);
-                                System.out.println("Su turno es para: "+testDate);
-                             } catch (Exception e){ System.out.println("invalid format");}
+                                 if (!df.format(testDate).equals(date)){
+                                 System.out.println("Ingrese");
+                                 } else {
+                                 System.out.println("Gracias");
+                                  }    
+                                    break;
+                                case 2:
 
-                             if (!df.format(testDate).equals(date)){
-                             System.out.println("Ingrese");
-                             } else {
-                             System.out.println("Gracias");
-                              }    
-                                break;
-                            case 2:
-                                
-                                break;
-                            case 3:
-                                break;
-                            case 4:
-                                break;
-                            default:
-                                System.out.println("Opción inválida, vuelva a ingresar");
-                                break;
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    System.out.print("\n   Presione enter para continuar...");
+                                    break;
+                                default:
+                                    System.out.println("Opción inválida, vuelva a ingresar");
+                                    break;
+                            }
+                        }catch(InputMismatchException e){
+                            System.out.println("   Opción inválida, vuelva a ingresar");
                         }
+                        sc.nextLine();
                     } while (z != 4);
                     break;
 
                 default:
-                    System.out.println("\n\tCedula inválida!, vuelva a ingresar");
-                    b = false;
+                    System.out.print("\n\tCedula inválida!, presione enter para continuar...");
             }
+            sc.nextLine();
         }
     }
 
