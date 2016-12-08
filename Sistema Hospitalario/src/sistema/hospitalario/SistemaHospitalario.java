@@ -100,7 +100,7 @@ public class SistemaHospitalario {
                                     break;
                                 case 2:
                                     hosp.getM().get(pos).visualizarPacientes(hosp);
-                                    break;    
+                                    break;
                                 case 3:
                                     hosp.getM().get(pos).atenderPaciente(hosp);
                                     break;
@@ -133,14 +133,15 @@ public class SistemaHospitalario {
 
                             switch (z) {
                                 case 1: //Agendar Cita
-                                    hosp.getP().get(pos2).verMedico(hosp.getM());
+                                    hosp.getP().get(pos2).seleccionarMedico(hosp.getM());
                                     hosp.getP().get(pos2).agendarTurno();
+
                                     break;
                                 case 2: // Ver historia Clínica
                                     System.out.println("\n\tHistoria Clinica:\n\n" + hosp.getP().get(pos2).getHistoriaClinica().toString());
                                     break;
                                 case 3: // Ver Turno
-                                    System.out.println("Su turno esta agendado para: " + hosp.getP().get(pos2).getTurno());
+                                    System.out.printf("\n%-10s%-10s", hosp.getP().get(pos2).getTurno(), hosp.getP().get(pos2).getMedico().getNombre());
                                     break;
                                 case 4: //Salir
                                     System.out.print("\n   Presione enter para continuar...");
@@ -251,4 +252,5 @@ public class SistemaHospitalario {
         h.getP().get(4).setMedico(h.getM().get(0));
 
     }
+       
 }

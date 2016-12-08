@@ -27,7 +27,7 @@ public class Paciente extends Usuario {
     }
 
     public void setTurno(Date turno) {
-        this.turno =    turno;
+        this.turno = turno;
     }
 
     public Date getTurno() {
@@ -58,7 +58,7 @@ public class Paciente extends Usuario {
         this.medico = new Medico();
         this.historiaClinica = new HistoriaClinica();
         this.cuarto = new Cuarto();
-         this.turno = new Date();
+        this.turno = new Date();
     }
 
     public Paciente(Medico medico, HistoriaClinica historiaClinica, Cuarto cuarto, Date turno) {
@@ -93,9 +93,7 @@ public class Paciente extends Usuario {
         }
     }
 
-  
-    
-    public void verMedico(ArrayList<Medico> p) {
+    public void seleccionarMedico(ArrayList<Medico> p) {
         Scanner sc = new Scanner(System.in);
         int x;
         for (int i = 0; i < p.size(); i++) {
@@ -105,6 +103,7 @@ public class Paciente extends Usuario {
         System.out.println("Ingrese el numero del medico para agender la cita");
         x = sc.nextInt();
         this.setMedico(p.get(x - 1));
+        System.out.println("Usted ha escogido al Doctor/a: " + this.getMedico());
 
     }
 }

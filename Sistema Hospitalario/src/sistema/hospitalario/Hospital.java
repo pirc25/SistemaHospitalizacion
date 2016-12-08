@@ -75,20 +75,20 @@ public class Hospital {
         this.secretario = new Secretario();
     }
 
-    public int buscarMedico(String cadena) {
+    public int buscarMedico(String cedula) {
 
         for (int i = 0; i < this.m.size(); i++) {
-            if (cadena.equals(this.m.get(i).cedula)) {
+            if (cedula.equals(this.m.get(i).cedula)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int buscarPaciente(String cadena) {
+    public int buscarPaciente(String cedula) {
 
         for (int i = 0; i < this.getP().size(); i++) {
-            if (cadena.equals(this.getP().get(i).getCedula())) {
+            if (cedula.equals(this.getP().get(i).getCedula())) {
                 return i;
             }
         }
