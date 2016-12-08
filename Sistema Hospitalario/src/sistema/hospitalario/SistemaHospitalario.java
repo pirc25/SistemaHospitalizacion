@@ -132,7 +132,7 @@ public class SistemaHospitalario {
                             z = sc.nextInt();
 
                             switch (z) {
-                                case 1:
+                                case 1: //Agendar Cita
                                     System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
                                     Scanner tu = new Scanner(System.in);
                                     String fecha = tu.nextLine();
@@ -152,12 +152,14 @@ public class SistemaHospitalario {
                                         System.out.println("Gracias");
                                     }    
                                        break;
-                                case 2:
-
-                                    break;
-                                case 3:
-                                    break;
-                                case 4:
+                                case 2: // Ver historia Clínica
+                                        System.out.println("\n\tHistoria Clinica:\n\n"+ hosp.getP().get(pos2).getHistoriaClinica().toString());
+                                         
+                                        break; 
+                                case 3: // Información de Pagos
+                                    
+                                    break; 
+                                case 4: //Salir
                                     System.out.print("\n   Presione enter para continuar...");
                                     break;
                                 default:
