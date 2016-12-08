@@ -26,6 +26,14 @@ public class Paciente extends Usuario {
         return medico;
     }
 
+    public void setTurno(Date turno) {
+        this.turno =    turno;
+    }
+
+    public Date getTurno() {
+        return turno;
+    }
+
     public HistoriaClinica getHistoriaClinica() {
         return historiaClinica;
     }
@@ -60,13 +68,14 @@ public class Paciente extends Usuario {
 
     public void agendarTurno() {
         boolean b = true;
-        
-        System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
+
+        System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh:mm");
         Scanner sc = new Scanner(System.in);
-        String fecha = sc.nextLine();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        String date = fecha;
+
         while (b == true) {
+            String fecha = sc.nextLine();
+            SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            String date = fecha;
             try {
                 turno = df.parse(date);
                 System.out.println("Su turno es para: " + turno);
@@ -79,13 +88,11 @@ public class Paciente extends Usuario {
             } catch (ParseException e) {
                 System.out.println("formato invalido");
             }
-
-            System.out.println(date);
-
-            sc.nextLine();
         }
     }
 
+  
+    
     public void verMedico(ArrayList<Medico> p) {
         Scanner sc = new Scanner(System.in);
         int x;
@@ -95,9 +102,7 @@ public class Paciente extends Usuario {
         System.out.println("\n");
         System.out.println("Ingrese el numero del medico para agender la cita");
         x = sc.nextInt();
-        this.setMedico(p.get(x-1));
-        
-        
-        
+        this.setMedico(p.get(x - 1));
+
     }
 }

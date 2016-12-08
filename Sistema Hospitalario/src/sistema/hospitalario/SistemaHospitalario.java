@@ -135,14 +135,12 @@ public class SistemaHospitalario {
                                 case 1: //Agendar Cita
                                     hosp.getP().get(pos2).verMedico(hosp.getM());
                                     hosp.getP().get(pos2).agendarTurno();
-                                    
                                     break;
                                 case 2: // Ver historia Clínica
                                     System.out.println("\n\tHistoria Clinica:\n\n" + hosp.getP().get(pos2).getHistoriaClinica().toString());
-
                                     break;
-                                case 3: // Información de Pagos
-
+                                case 3: // Ver Turno
+                                    System.out.println("Su turno esta agendado para: " + hosp.getP().get(pos2).getTurno());
                                     break;
                                 case 4: //Salir
                                     System.out.print("\n   Presione enter para continuar...");
