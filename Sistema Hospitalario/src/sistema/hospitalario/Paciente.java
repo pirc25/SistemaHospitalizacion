@@ -58,12 +58,14 @@ public class Paciente extends Usuario {
         this.medico = new Medico();
         this.historiaClinica = new HistoriaClinica();
         this.cuarto = new Cuarto();
+         this.turno = new Date();
     }
 
-    public Paciente(Medico medico, HistoriaClinica historiaClinica, Cuarto cuarto) {
+    public Paciente(Medico medico, HistoriaClinica historiaClinica, Cuarto cuarto, Date turno) {
         this.medico = medico;
         this.historiaClinica = historiaClinica;
         this.cuarto = cuarto;
+        this.turno = turno;
     }
 
     public void agendarTurno() {

@@ -236,7 +236,7 @@ public class SistemaHospitalario {
         h.getP().get(1).setMedico(h.getM().get(0));
         h.getP().get(2).setNombre("Sebastian");
         h.getP().get(2).setApellido("Hidalgo");
-        h.getP().get(2).setCedula("333333333");
+        h.getP().get(2).setCedula("3333333333");
         h.getP().get(2).setSexo("M");
         h.getP().get(2).setMedico(h.getM().get(1));
         h.getP().get(3).setNombre("Jose");
