@@ -5,7 +5,10 @@
  */
 package sistema.hospitalario;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -17,6 +20,7 @@ public class Paciente extends Usuario {
     private Medico medico;
     private HistoriaClinica historiaClinica;
     private Cuarto cuarto;
+    private Date turno;
 
     public Medico getMedico() {
         return medico;
@@ -54,10 +58,46 @@ public class Paciente extends Usuario {
         this.cuarto = cuarto;
     }
 
-    public void verHistoriaClinica() {
-        System.out.println(this.getHistoriaClinica().getEstado());
-        System.out.println(this.getHistoriaClinica().getAlergia());
-        System.out.println(this.getHistoriaClinica().getTipoSangre());
+    public void agendarTurno() {
+        boolean b = true;
+        
+        System.out.println("Introduzca la fecha con formato dd/MM/yyyy hh,mm,ss");
+        Scanner sc = new Scanner(System.in);
+        String fecha = sc.nextLine();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        String date = fecha;
+        while (b == true) {
+            try {
+                turno = df.parse(date);
+                System.out.println("Su turno es para: " + turno);
+                if (!df.format(turno).equals(date)) {
+                    System.out.println("Ingrese");
+                } else {
+                    System.out.println("Gracias");
+                }
+                b = false;
+            } catch (ParseException e) {
+                System.out.println("formato invalido");
+            }
+
+            System.out.println(date);
+
+            sc.nextLine();
+        }
     }
-    
+
+    public void verMedico(ArrayList<Medico> p) {
+        Scanner sc = new Scanner(System.in);
+        int x;
+        for (int i = 0; i < p.size(); i++) {
+            System.out.printf("\n%-4d%-15s%-15s%-15s", i + 1, p.get(i).getNombre(), p.get(i).getApellido(), p.get(i).getEspecialidad());
+        }
+        System.out.println("\n");
+        System.out.println("Ingrese el numero del medico para agender la cita");
+        x = sc.nextInt();
+        this.setMedico(p.get(x-1));
+        
+        
+        
+    }
 }
