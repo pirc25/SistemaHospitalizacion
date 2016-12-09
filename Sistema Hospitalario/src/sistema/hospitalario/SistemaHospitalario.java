@@ -55,11 +55,11 @@ public class SistemaHospitalario {
                             switch (x) {
                                 case 1:
                                     Medico a = new Medico();
-                                    hosp.getSecretario().registrarNuevoMedico(hosp.getM(), a);
+                                    hosp.getSecretario().registrarNuevoMedico(hosp.getM(), a,hosp);
                                     break;
                                 case 2:
                                     Paciente p = new Paciente();
-                                    hosp.getSecretario().registrarNuevoPaciente(hosp.getP(), p);
+                                    hosp.getSecretario().registrarNuevoPaciente(hosp.getP(), p,hosp);
                                     break;
 
                                 case 3:

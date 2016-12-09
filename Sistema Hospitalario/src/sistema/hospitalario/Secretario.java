@@ -24,42 +24,57 @@ public class Secretario extends Usuario {
         this.oficina = oficina;
     }
 
-    public void registrarNuevoPaciente(ArrayList<Paciente> p, Paciente q) {
+    public void registrarNuevoPaciente(ArrayList<Paciente> p, Paciente q,Hospital h) {
         
-        p.add(q);
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nIngrese nombre: ");
-        q.setNombre(sc.nextLine());
-        System.out.print("Ingrese apellido: ");
-        q.setApellido(sc.nextLine());
-        System.out.print("Ingrese cedula: ");
-        q.setCedula(sc.nextLine());
-        System.out.print("Ingrese sexo [M/F]: ");
-        q.setSexo(sc.nextLine());
-        System.out.print("Ingrese alergias: ");
-        q.getHistoriaClinica().setAlergia(sc.nextLine());
-        System.out.print("Ingrese tipo de sangre [A+/O-]: ");
-        q.getHistoriaClinica().setTipoSangre(sc.nextLine());
-        System.out.print("Ingrese numero de cuarto: ");
-        q.getCuarto().setNum(sc.nextLine());
-        System.out.printf("\n");
+        Scanner sc = new Scanner(System.in);     
+        System.out.print("\nIngrese cedula: ");
+        String ci=sc.nextLine();        
+        int i=this.buscarPoscicion(ci,h);
+        if(i==-1){
+            p.add(q);
+            q.setCedula(ci);
+            System.out.print("Ingrese nombre: ");
+            q.setNombre(sc.nextLine());
+            System.out.print("Ingrese apellido: ");
+            q.setApellido(sc.nextLine());
+            System.out.print("Ingrese sexo [M/F]: ");
+            q.setSexo(sc.nextLine());
+            System.out.print("Ingrese alergias: ");
+            q.getHistoriaClinica().setAlergia(sc.nextLine());
+            System.out.print("Ingrese tipo de sangre [A+/O-]: ");
+            q.getHistoriaClinica().setTipoSangre(sc.nextLine());
+            System.out.print("Ingrese numero de cuarto: ");
+            q.getCuarto().setNum(sc.nextLine());
+            System.out.printf("\n");
+        }else{
+            System.out.println("\n   Cedula ingresada ya existe, vuelva a ingresar\n");
+        }
+        
+        
+        
     }
 
-    public void registrarNuevoMedico(ArrayList<Medico> m, Medico n) {
-
-        m.add(n);
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nIngrese nombre: ");
-        n.setNombre(sc.nextLine());
-        System.out.print("Ingrese apellido: ");
-        n.setApellido(sc.nextLine());
-        System.out.print("Ingrese cedula: ");
-        n.setCedula(sc.nextLine());
-        System.out.print("Ingrese especialidad: ");
-        n.setEspecialidad(sc.nextLine());
-        System.out.print("Ingrese el numero del consultorio: ");
-        n.getConsultorio().setNumero(sc.nextLine());
-        System.out.printf("\n");
+    public void registrarNuevoMedico(ArrayList<Medico> m, Medico n,Hospital h) {
+        
+        Scanner sc = new Scanner(System.in);     
+        System.out.print("\nIngrese cedula: ");
+        String ci=sc.nextLine();        
+        int i=this.buscarPoscicion(ci,h);
+        if(i==-1){
+            m.add(n);
+            n.setCedula(ci);
+            System.out.print("Ingrese nombre: ");
+            n.setNombre(sc.nextLine());
+            System.out.print("Ingrese apellido: ");
+            n.setApellido(sc.nextLine());
+            System.out.print("Ingrese especialidad: ");
+            n.setEspecialidad(sc.nextLine());
+            System.out.print("Ingrese el numero del consultorio: ");
+            n.getConsultorio().setNumero(sc.nextLine());
+            System.out.printf("\n");
+        }else{
+            System.out.println("\n   Cedula ingresada ya existe, vuelva a ingresar\n");
+        }    
     }
 
     public void verListadePacientes(ArrayList<Paciente> p, Paciente q) {
@@ -79,5 +94,19 @@ public class Secretario extends Usuario {
             System.out.printf("%-12s%-15s%-15s%s\n",m.get(i).getNombre(), m.get(i).getApellido(),m.get(i).getCedula(), m.get(i).getEspecialidad());
         }
         System.out.printf("\n");
+    }
+    public int buscarPoscicion(String cadena, Hospital h) {
+
+        for (int i = 0; i < h.getM().size(); i++) {
+            if (cadena.equals(h.getM().get(i).getCedula())) {
+                return i;
+            }
+        }
+        for (int i = 0; i < h.getP().size(); i++) {
+            if (cadena.equals(h.getP().get(i).getCedula())) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

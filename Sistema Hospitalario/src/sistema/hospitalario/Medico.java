@@ -36,13 +36,6 @@ public class Medico extends Usuario {
         this.apellido = "";
     }
 
-    public Medico(String nombre, String apellido, String especialidad, Consultorio consultorio) {
-        this.especialidad = especialidad;
-        this.consultorio = consultorio;
-        this.nombre = nombre;
-        this.apellido = apellido;
-    }
-
     public void toSting() {
         System.out.println("Nombre: " + this.getNombre() + " " + this.getApellido());
         System.out.println("Especialidad: " + this.getEspecialidad());
