@@ -5,9 +5,6 @@
  */
 package sistema.hospitalario;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -31,8 +28,8 @@ public class SistemaHospitalario {
         System.out.println("\t\t\tSistema Hospitalario");
         while (b == false) {
 
-            System.out.println("\nEscriba su cedula para acceder o 'SALIR' para cerrar el programa");
-            System.out.print("Ingrese a continuacion: ");
+            System.out.println("\nBienvenido, digite su cedula para acceder o 'SALIR' para cerrar el programa");
+            System.out.print("\nIngrese a continuacion: ");
 
             String ci = sc.nextLine();
 
@@ -93,7 +90,7 @@ public class SistemaHospitalario {
                     System.out.println("\n   Bienvenid@ Dr." + hosp.getM().get(pos).getNombre() + " " + hosp.getM().get(pos).getApellido() + "\n");
                     int y = -1;
                     do {
-                        System.out.print("1)Ver Pacientes Asignados\n2)Registrar Atencion a un Paciente\n3)Editar Historias Clinicas\n4)Salir\n\nEscoja una opcion: ");
+                        System.out.print("1)Ver Pacientes Asignados\n2)Visualizar datos de un paciente\n3)Registrar Atencion a un Paciente\n4)Editar Historias Clinicas\n5)Salir\n\nEscoja una opcion: ");
                         try {
                             y = sc.nextInt();
 
@@ -102,12 +99,15 @@ public class SistemaHospitalario {
                                     hosp.getM().get(pos).verPacientes(hosp.getP());
                                     break;
                                 case 2:
+                                    hosp.getM().get(pos).visualizarPacientes(hosp);
+                                    break;    
+                                case 3:
                                     hosp.getM().get(pos).atenderPaciente(hosp);
                                     break;
-                                case 3:
+                                case 4:
                                     hosp.getM().get(pos).editarPaciente(hosp);
                                     break;
-                                case 4:
+                                case 5:
                                     System.out.print("\n   Presione enter para continuar...");
                                     break;
                                 default:
@@ -118,7 +118,7 @@ public class SistemaHospitalario {
                             System.out.println("\n   Opción inválida, vuelva a ingresar\n");
                         }
                         sc.nextLine();
-                    } while (y != 4);
+                    } while (y != 5);
                     break;
 
                 case 3://paciente
